@@ -14,3 +14,9 @@ Usage of ./go-hue-light:
   -light string
         Name of the light to control
 ```
+
+## Todo
+- command to get detailed light status
+
+## Bugs
+- when ommiting the color flags, the color changes to the default values
