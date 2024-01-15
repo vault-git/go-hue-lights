@@ -10,8 +10,8 @@ import (
 )
 
 const (
-    deviceResourceUrl = "https://%s/clip/v2/resource/device"
-    lightResourceUrl = "https://%s/clip/v2/resource/light/%s"
+	deviceResourceUrl = "https://%s/clip/v2/resource/device"
+	lightResourceUrl  = "https://%s/clip/v2/resource/light/%s"
 )
 
 func getHueApiResource(c BridgeConfig, url string) []byte {
@@ -35,7 +35,7 @@ func getHueApiResource(c BridgeConfig, url string) []byte {
 		return nil
 	}
 
-    defer resp.Body.Close()
+	defer resp.Body.Close()
 
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -47,11 +47,11 @@ func getHueApiResource(c BridgeConfig, url string) []byte {
 }
 
 func GetDeviceResource(c BridgeConfig) []byte {
-    return getHueApiResource(c, fmt.Sprintf(deviceResourceUrl, c.Ip))
+	return getHueApiResource(c, fmt.Sprintf(deviceResourceUrl, c.Ip))
 }
 
 func GetLightResource(c BridgeConfig, rId string) []byte {
-    return getHueApiResource(c, fmt.Sprintf(lightResourceUrl, c.Ip, rId))
+	return getHueApiResource(c, fmt.Sprintf(lightResourceUrl, c.Ip, rId))
 }
 
 func PostNewClient(ip string) ([]byte, error) {
@@ -80,12 +80,12 @@ func PostNewClient(ip string) ([]byte, error) {
 }
 
 func PutLightResource(c BridgeConfig, rId string, lp LightProps) {
-    lightProps := bytes.NewBuffer(CreateLightPropertiesRequest(lp))
+	lightProps := bytes.NewBuffer(CreateLightPropertiesRequest(lp))
 	req, err := http.NewRequest("PUT", fmt.Sprintf(lightResourceUrl, c.Ip, rId), lightProps)
-    if err != nil {
-        log.Println(err)
-        return
-    }
+	if err != nil {
+		log.Println(err)
+		return
+	}
 
 	req.Header.Add("hue-application-key", c.ApiKey)
 

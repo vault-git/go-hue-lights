@@ -144,9 +144,8 @@ func ParseNewUserResult(resp []byte) (string, error) {
 	var success []Success
 	err := json.Unmarshal(resp, &success)
 	if err != nil {
-        return "", err
+		return "", err
 	}
 
 	return success[0].Success.Username, nil
 }
-

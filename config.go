@@ -9,8 +9,8 @@ import (
 const CONFIG_FILE = "bridgeSettings.json"
 
 type BridgeConfig struct {
-    Ip     string `json:"ip"`
-    ApiKey string `json:"apikey"`
+	Ip     string `json:"ip"`
+	ApiKey string `json:"apikey"`
 }
 
 func (c *BridgeConfig) Load() BridgeConfig {
@@ -50,5 +50,5 @@ func (c *BridgeConfig) Save() error {
 
 	f.Write(configBytes)
 
-    return nil
+	return nil
 }

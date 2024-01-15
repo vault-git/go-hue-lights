@@ -114,14 +114,14 @@ func main() {
 	flag.Parse()
 
 	if *listLights {
-        PrintAllLights(config)
-        return
+		PrintAllLights(config)
+		return
 	}
 
-    if len(*lightName) == 0 {
-        flag.Usage()
-        return
-    }
+	if len(*lightName) == 0 {
+		flag.Usage()
+		return
+	}
 
 	ControlLights(config, *lightName, LightProps{false, *brightness, *colorX, *colorY})
 }

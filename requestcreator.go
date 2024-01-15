@@ -50,5 +50,5 @@ func CreateNewClientRequest() []byte {
 		return nil
 	}
 
-    return requestBody
+	return requestBody
 }

@@ -20,8 +20,8 @@ func TestParseDeviceResource(t *testing.T) {
 		}
 
 		if rid != "8535734d-7136-45e6-a551-70b5f2782fa8" &&
-           rid != "c873dbb6-aae7-44b2-b0b9-e1ef3992cec7" &&
-           rid != "2ea13e3b-0401-4396-bcb7-d58d2c542388" {
+			rid != "c873dbb6-aae7-44b2-b0b9-e1ef3992cec7" &&
+			rid != "2ea13e3b-0401-4396-bcb7-d58d2c542388" {
 			t.Errorf("ParseDeviceResource(%q) wrong resource id for light", testBuf)
 		}
 	}
@@ -52,9 +52,9 @@ func TestIsLinkButtonResponse(t *testing.T) {
 		input []byte
 		want  bool
 	}{
-        {[]byte(`[{"error":{"type": 101, "address": "", "description": "link button not pressed"}}]`), true},
-        {[]byte(`[{"error":{"type": 100, "address": "", "description": "other error"}}]`), false},
-        {[]byte(`{"invalid":"stuff"}`), false},
+		{[]byte(`[{"error":{"type": 101, "address": "", "description": "link button not pressed"}}]`), true},
+		{[]byte(`[{"error":{"type": 100, "address": "", "description": "other error"}}]`), false},
+		{[]byte(`{"invalid":"stuff"}`), false},
 	}
 
 	for _, test := range tests {
@@ -69,8 +69,8 @@ func TestParseNewUserResponse(t *testing.T) {
 		input []byte
 		want  string
 	}{
-        {[]byte(`[{"success": {"username": "new_user_name","clientkey": "new_client_key"}}]`), "new_user_name"},
-        {[]byte(`[{"other":"json"}]`), ""},
+		{[]byte(`[{"success": {"username": "new_user_name","clientkey": "new_client_key"}}]`), "new_user_name"},
+		{[]byte(`[{"other":"json"}]`), ""},
 	}
 
 	for _, test := range tests {
